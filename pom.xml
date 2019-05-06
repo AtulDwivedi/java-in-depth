@@ -6,7 +6,13 @@
 
     <groupId>com.atuldwivedi.jid</groupId>
     <artifactId>java-in-depth</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>multi-threading</module>
+        <module>algorithm</module>
+        <module>data-structure</module>
+    </modules>
 
     <name>java-in-depth</name>
     <!-- FIXME change it to the project's website -->
