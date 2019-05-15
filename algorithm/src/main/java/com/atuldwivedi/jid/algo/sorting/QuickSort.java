@@ -31,11 +31,11 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5};
-        QuickSort ob = new QuickSort();
-        ob.sort(arr, 0, arr.length - 1);
+        int[] elements = {10, 7, 8, 9, 1, 5};
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(elements, 0, elements.length - 1);
 
-        for (int element : arr) {
+        for (int element : elements) {
             System.out.print(element + " ");
         }
     }
