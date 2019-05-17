@@ -6,17 +6,19 @@ import java.util.concurrent.*;
 
 public class ExecutorServiceTest {
     public static void main(String[] args) {
-        int number = 10;
-
-        NumberChecker numberChecker = new NumberChecker();
-        List<Callable<Boolean>> numberCheckerTaks = new ArrayList<>();
-        numberCheckerTaks.add(numberChecker.isEvenNumber(number));
-        numberCheckerTaks.add(numberChecker.isOddNumber(number));
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
+        int number = 10;
+
+        NumberChecker numberChecker = new NumberChecker();
+        List<Callable<Boolean>> numberCheckerTasks = new ArrayList<>();
+        numberCheckerTasks.add(numberChecker.isEvenNumber(number));
+        numberCheckerTasks.add(numberChecker.isOddNumber(number));
+
+
         try {
-            executorService.invokeAll(numberCheckerTaks).forEach(it -> {
+            executorService.invokeAll(numberCheckerTasks).forEach(it -> {
                 try {
                     Boolean value = it.get();
                     System.out.println(value);
