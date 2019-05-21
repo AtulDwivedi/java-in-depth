@@ -4,6 +4,25 @@ public class LinkedListTest {
 
 
     public static void main(String[] args) {
+        Node nodeOne = new Node(1);
+        Node nodeTwo = new Node(2);
+        Node nodeThree = new Node(3);
+        Node nodeFour = new Node(4);
+        Node nodeFive = new Node(5);
+        Node nodeSix = new Node(6);
+        Node nodeSeven = new Node(7);
+
+        LinkedList simpleLinkedList = new LinkedList();
+        simpleLinkedList.add(nodeTwo);
+        simpleLinkedList.add(nodeThree);
+        simpleLinkedList.add(nodeFive);
+        simpleLinkedList.add(nodeSix);
+        simpleLinkedList.add(0, nodeOne);
+        simpleLinkedList.add(3, nodeFour);
+        simpleLinkedList.add(6, nodeSeven);
+        simpleLinkedList.printLinkedList();
+
+
         LinkedList linkedList = new LinkedList();
         linkedList.add(new Node(1));
         linkedList.add(new Node(2));
@@ -15,10 +34,10 @@ public class LinkedListTest {
 
 
         Node someNode = new Node(5);
-        linkedList.add(someNode, 4);
-        linkedList.add(new Node(77), 100);
+        linkedList.add(4, someNode);
+        linkedList.add(100, new Node(77));
 
-        linkedList.add(new Node(0), 0);
+        linkedList.add(0, new Node(0));
 
         node.next = NODE;
         linkedList.detectAndRemoveLoop();

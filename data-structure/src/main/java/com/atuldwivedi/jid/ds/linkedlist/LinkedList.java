@@ -32,10 +32,10 @@ public class LinkedList {
     /**
      * Adds element at specified index iff index < linked list size + 2.
      *
-     * @param node
      * @param index
+     * @param node
      */
-    public void add(Node node, int index) {
+    public void add(int index, Node node) {
         if (node == null || index < 0) {
             return;
         }
