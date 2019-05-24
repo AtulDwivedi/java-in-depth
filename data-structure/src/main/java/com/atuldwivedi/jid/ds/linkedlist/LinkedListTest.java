@@ -22,6 +22,8 @@ public class LinkedListTest {
         simpleLinkedList.add(6, nodeSeven);
         simpleLinkedList.printLinkedList();
         System.out.println(simpleLinkedList.getMiddle().data);
+        simpleLinkedList.reverse();
+        simpleLinkedList.printLinkedList();
 
 
         LinkedList linkedList = new LinkedList();

@@ -170,4 +170,16 @@ public class LinkedList {
         }
         return slow;
     }
+
+    public void reverse() {
+        Node prev = null, next;
+        Node current = head;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
 }
