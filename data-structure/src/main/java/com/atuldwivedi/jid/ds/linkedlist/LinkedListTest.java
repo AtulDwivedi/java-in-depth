@@ -1,5 +1,7 @@
 package com.atuldwivedi.jid.ds.linkedlist;
 
+import static java.util.Optional.ofNullable;
+
 public class LinkedListTest {
 
 
@@ -8,9 +10,9 @@ public class LinkedListTest {
         Node nodeTwo = new Node(2);
         Node nodeThree = new Node(3);
         Node nodeFour = new Node(4);
-        Node nodeFive = new Node(5);
-        Node nodeSix = new Node(6);
-        Node nodeSeven = new Node(7);
+        Node nodeFive = new Node(3);
+        Node nodeSix = new Node(2);
+        Node nodeSeven = new Node(1);
 
         LinkedList simpleLinkedList = new LinkedList();
         simpleLinkedList.add(nodeTwo);
@@ -21,8 +23,11 @@ public class LinkedListTest {
         simpleLinkedList.add(3, nodeFour);
         simpleLinkedList.add(6, nodeSeven);
         simpleLinkedList.printLinkedList();
-        System.out.println(simpleLinkedList.getMiddle().data);
-        simpleLinkedList.reverse();
+        Node middle = simpleLinkedList.getMiddle();
+        System.out.println(middle.data);
+//        simpleLinkedList.reverse();
+        simpleLinkedList.printLinkedList();
+        System.out.println(simpleLinkedList.isPalindrome());
         simpleLinkedList.printLinkedList();
 
 
@@ -52,5 +57,20 @@ public class LinkedListTest {
         }
 
         System.out.println("Size of linked list: " + linkedList.size());
+
+        ofNullable(getLinkedList().getMiddle()).ifPresent(it -> System.out.println(it.data));
+        System.out.println(getLinkedList(1, 2, 3, 2, 1).getMiddle().data);
+        System.out.println(getLinkedList(1, 2, 3, 4, 2, 1).isPalindrome());
+    }
+
+    private static LinkedList getLinkedList(Integer... elements) {
+        if (elements == null) {
+            return null;
+        }
+        LinkedList linkedList = new LinkedList();
+        for (Integer element : elements) {
+            linkedList.add(new Node(element));
+        }
+        return linkedList;
     }
 }

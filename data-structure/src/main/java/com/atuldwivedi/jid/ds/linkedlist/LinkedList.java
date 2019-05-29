@@ -182,4 +182,79 @@ public class LinkedList {
         }
         head = prev;
     }
+
+    public Node reverseFromNode(Node node) {
+        Node prev = null, next;
+        Node current = node;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
+
+    public boolean compareWith(Node anotherListHead) {
+        Node thisHead = head;
+        Node otherHead = anotherListHead;
+        while (thisHead != null && anotherListHead != null) {
+            if (thisHead.data == otherHead.data) {
+                thisHead = thisHead.next;
+                otherHead = otherHead.next;
+            } else {
+                return false;
+            }
+        }
+
+        return thisHead == null && otherHead == null;
+    }
+
+    public boolean isPalindrome() {
+        if (head == null && head.next == null) {
+            return true;
+        }
+
+        Node slow = head, fast = head, prevOfSlow = head;
+        Node middle = null, secondHalf = null;
+
+        while (fast != null && fast.next != null) {
+            prevOfSlow = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        if (fast != null) {
+            middle = slow;
+            slow = slow.next;
+        }
+
+        secondHalf = slow;
+        prevOfSlow.next = null;
+
+        secondHalf = reverseFromNode(secondHalf);
+
+        boolean result = true;
+        Node thisHead = head;
+        Node otherHead = secondHalf;
+        while (thisHead != null && secondHalf != null) {
+            if (thisHead.data == otherHead.data) {
+                thisHead = thisHead.next;
+                otherHead = otherHead.next;
+            } else {
+                result = false;
+                break;
+            }
+        }
+        secondHalf = reverseFromNode(secondHalf);
+
+        if (middle != null) {
+            prevOfSlow.next = middle;
+            middle.next = secondHalf;
+        } else {
+            prevOfSlow.next = secondHalf;
+        }
+        return result;
+    }
 }
