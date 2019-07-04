@@ -61,6 +61,7 @@ public class LinkedListTest {
         ofNullable(getLinkedList().getMiddle()).ifPresent(it -> System.out.println(it.data));
         System.out.println(getLinkedList(1, 2, 3, 2, 1).getMiddle().data);
         System.out.println(getLinkedList(1, 2, 3, 4, 2, 1).isPalindrome());
+        System.out.println(getLinkedList(1, 2, 3, 4, 5).elementFromEnd(10));
     }
 
     private static LinkedList getLinkedList(Integer... elements) {

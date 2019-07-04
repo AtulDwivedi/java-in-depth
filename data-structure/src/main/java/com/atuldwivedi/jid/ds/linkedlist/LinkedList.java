@@ -257,4 +257,26 @@ public class LinkedList {
         }
         return result;
     }
+
+    public Integer elementFromEnd(int n) {
+        if (head == null) {
+            return null;
+        }
+
+        Node slow = head, fast = head;
+        int count = 1;
+        while (fast.next != null && count < n) {
+            System.out.print(fast.data);
+            fast = fast.next;
+            count++;
+        }
+
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow.data;
+
+    }
 }
