@@ -2,12 +2,13 @@ package com.atuldwivedi.jid.basic;
 
 public class MainThreadTest {
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread(new Printer());
-        System.out.println("Printer thread state: " + thread.getState());
-        thread.start();
-        System.out.println("Printer thread state: " + thread.getState());
+        String currentThreadName = Thread.currentThread().getName();
+        System.out.println("Current thread name is : " + currentThreadName);
+        System.out.println(currentThreadName + " thread id is: " + Thread.currentThread().getId());
+        System.out.println(currentThreadName + " thread state is: " + Thread.currentThread().getState());
+        System.out.println(currentThreadName + " thread priority is: " + Thread.currentThread().getPriority());
+        System.out.println(currentThreadName + " thread class loader is: " + Thread.currentThread().getContextClassLoader());
+        System.out.println(currentThreadName + " thread group is: " + Thread.currentThread().getThreadGroup());
         Thread.sleep(2000);
-        System.out.println("Main thread state: " + Thread.currentThread().getState());
-        System.out.println("Printer thread state: " + thread.getState());
     }
 }
