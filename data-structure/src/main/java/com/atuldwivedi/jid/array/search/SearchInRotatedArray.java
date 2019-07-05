@@ -1,5 +1,9 @@
 package com.atuldwivedi.jid.array.search;
 
-public class SearchInRotatedArray {
+import org.assertj.core.util.Arrays;
 
+public class SearchInRotatedArray {
+    public static void main(String[] args) {
+
+    }
 }
