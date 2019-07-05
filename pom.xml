@@ -9,11 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>multi-threading</module>
-        <module>algorithm</module>
-        <module>data-structure</module>
+        <module>data-structure-and-algorithm</module>
         <module>design</module>
         <module>java-language-features</module>
+        <module>language</module>
     </modules>
 
     <name>java-in-depth</name>
