@@ -7,28 +7,22 @@ public class ProducerConsumeTest {
     public static void main(String[] args) throws InterruptedException {
         final ProducerConsumer pc = new ProducerConsumer();
 
-        Thread producer = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    pc.produce();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
+        Thread producer = new Thread(() -> {
+            try {
+                pc.produce();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
         });
 
-        Thread consumer = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    pc.consume();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
+        Thread consumer = new Thread(() -> {
+            try {
+                pc.consume();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
         });
 
         producer.start();
