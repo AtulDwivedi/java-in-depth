@@ -13,6 +13,7 @@
         <module>algorithm</module>
         <module>data-structure</module>
         <module>design</module>
+        <module>java-language-features</module>
     </modules>
 
     <name>java-in-depth</name>
