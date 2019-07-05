@@ -2,7 +2,6 @@ package com.atuldwivedi.jid.basic;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class CompletableFutureTest {
 
@@ -30,6 +29,6 @@ public class CompletableFutureTest {
         System.out.println(Thread.currentThread().getName());
         CompletableFuture<String> one = asyncSaySomeThing();
         CompletableFuture<String> two = asyncSayAnotherThing();
-        CompletableFuture.allOf(one, two);
+        CompletableFuture.allOf(one, two).join();
     }
 }
