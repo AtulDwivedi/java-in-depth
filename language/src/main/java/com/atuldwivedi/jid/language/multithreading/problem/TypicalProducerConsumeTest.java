@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Predicate;
 
 public class TypicalProducerConsumeTest {
     public static void main(String[] args) throws InterruptedException {
@@ -44,11 +43,11 @@ class Producer {
 
     private final AtomicInteger counter = new AtomicInteger(0);
 
-    public Producer(Queue<Integer> workQueue) {
+    Producer(Queue<Integer> workQueue) {
         this.workQueue = workQueue;
     }
 
-    public void produce() throws InterruptedException {
+    void produce() throws InterruptedException {
         while (true) {
             synchronized (workQueue) {
                 while (workQueue.size() == CAPACITY) {
@@ -66,15 +65,14 @@ class Producer {
     }
 }
 
-
 class Consumer {
     private final Queue<Integer> workQueue;
 
-    public Consumer(Queue<Integer> workQueue) {
+    Consumer(Queue<Integer> workQueue) {
         this.workQueue = workQueue;
     }
 
-    public void consume() throws InterruptedException {
+    void consume() throws InterruptedException {
         while (true) {
             synchronized (workQueue) {
                 while (workQueue.isEmpty()) {
