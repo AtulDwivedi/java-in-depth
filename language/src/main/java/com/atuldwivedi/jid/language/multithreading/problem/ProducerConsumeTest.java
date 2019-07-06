@@ -67,7 +67,6 @@ class ProducerConsumer {
                 System.out.println("- Consumer consumed: " + val);
                 notify();
                 TimeUnit.SECONDS.sleep(1);
-
             }
         }
     }
