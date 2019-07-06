@@ -38,7 +38,14 @@ public class ManyProducersManyConsumersForOneQueue {
         executorService.submit(consumerWorker);
         executorService.submit(consumerWorker);
 
-
+        executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(100, TimeUnit.SECONDS)) {
+                executorService.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Forcefully shut down the executor service.");
+        }
     }
 }
 
