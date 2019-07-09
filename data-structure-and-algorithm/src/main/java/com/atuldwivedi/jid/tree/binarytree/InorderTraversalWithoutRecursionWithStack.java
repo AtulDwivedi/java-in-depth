@@ -6,16 +6,16 @@ public class InorderTraversalWithoutRecursionWithStack {
 
     static void inorder(Node root) {
         Stack<Node> stack = new Stack<>();
-        Node node = root;
+        Node current = root;
 
-        while (node != null || stack.size() > 0) {
-            while (node != null) {
-                stack.push(node);
-                node = node.left;
+        while (current != null || stack.size() > 0) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
             }
-            node = stack.pop();
-            System.out.print(node.data + " ");
-            node = node.right;
+            current = stack.pop();
+            System.out.print(current.data + " ");
+            current = current.right;
         }
     }
 
