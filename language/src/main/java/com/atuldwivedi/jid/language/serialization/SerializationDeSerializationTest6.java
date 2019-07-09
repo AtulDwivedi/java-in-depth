@@ -1,31 +1,30 @@
 package com.atuldwivedi.jid.language.serialization;
 
-import com.atuldwivedi.jid.language.serialization.model.Person;
+import com.atuldwivedi.jid.language.serialization.model.Parrot;
 
 import java.io.*;
 
-public class SerializationDeSerializationTest1 {
+public class SerializationDeSerializationTest6 {
     public static void main(String[] args) {
+        Parrot parrot = new Parrot(10, "Talk");
         String fileName = "serialization-deserialization.sd";
-        Person person = new Person("Atul", 22);
 
+        //serialization
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(person);
-
-            System.out.println("Before deserialization: \n" + person);
+            objectOutputStream.writeObject(parrot);
+            System.out.println("Before deserialization: " + parrot);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println();
-
+        //deserialization
         try {
             FileInputStream fileInputStream = new FileInputStream(fileName);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            Person deSerializedPerson = (Person) objectInputStream.readObject();
-            System.out.println("After deserialization: \n" + deSerializedPerson);
+            Parrot deSerializedParrot = (Parrot) objectInputStream.readObject();
+            System.out.println("After deserialization: " + deSerializedParrot);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
