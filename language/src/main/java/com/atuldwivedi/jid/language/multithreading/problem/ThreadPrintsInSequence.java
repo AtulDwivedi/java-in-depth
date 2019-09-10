@@ -15,10 +15,10 @@ public class ThreadPrintsInSequence {
         }
 
         Thread.sleep(10000);
-        System.out.println("Will try to shutdown now...");
+        //System.out.println("Will try to shutdown now...");
 
         for (Worker worker : threads) {
-            worker.shutdown();
+            //worker.shutdown();
         }
     }
 }
@@ -53,9 +53,13 @@ class Worker extends Thread {
                     while (resourceLock.flag != threadNumber) {
                         resourceLock.wait();
                     }
-                    System.out.println("Thread:" + threadNumber + " value: " + counter.incrementAndGet());
+                    //System.out.println("Thread:" + threadNumber + " value: " + counter.incrementAndGet());
+                    System.out.print(counter.incrementAndGet()+" ");
                     Thread.sleep(1000);
                     resourceLock.flag = (threadNumber + 1) % resourceLock.threadsCount;
+                    if(resourceLock.flag == 0){
+                        System.out.println();
+                    }
                     resourceLock.notifyAll();
                 }
             } catch (Exception e) {
